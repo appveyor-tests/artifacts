@@ -1,0 +1,14 @@
+version: 1.0.{build}
+
+build: off
+
+test_script:
+- echo "Zipping for upload through 'artifacts' section
+- 7z a go17.zip c:\go17
+- copy go17.zip go17-1.zip
+- appveyor PushArtifact go17-1.zip
+- copy go17.zip go17-2.zip
+- ps: Push-AppveyorArtifact go17-1.zip
+
+artifacts:
+- path: go17.zip
