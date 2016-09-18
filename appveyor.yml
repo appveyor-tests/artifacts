@@ -3,14 +3,14 @@ version: 1.0.{build}
 build: off
 
 test_script:
-- echo "Zipping for upload through 'artifacts' section
+- echo Zipping for upload through 'artifacts' section
 - 7z a go17.zip c:\go17
 - copy go17.zip go17-1.zip
 - appveyor PushArtifact go17-1.zip
 - copy go17.zip go17-2.zip
 - ps: Push-AppveyorArtifact go17-1.zip
 - ps: Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
-- appveyor DownloadFile https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -Timeout 1000
+- appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.gz -Timeout 1000
 
 artifacts:
 - path: go17.zip
