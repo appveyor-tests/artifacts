@@ -11,11 +11,12 @@ test_script:
 - ps: Push-AppveyorArtifact go17-1.zip
 - ps: Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
 - appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.gz -Timeout 1000
-- mklink %appveyor_build_folder%\go17-1.zip %appveyor_build_folder%\go17-1-link.zip
+- mklink go17-1-link.zip go17-1.zip
 - ps: Push-AppveyorArtifact go17-1-link.zip
-- mklink %appveyor_build_folder%\go17-1.zip %appveyor_build_folder%\go17-2-link.zip
-
+- mklink go17-2-link.zip go17-1.zip
+- move C:\go16 %appveyor_build_folder%\go16
 
 artifacts:
 - path: go17.zip
 - path: go17-2-link.zip
+- path: go16
