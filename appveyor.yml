@@ -1,5 +1,8 @@
 version: 1.0.{build}
 
+install:
+- appveyor PushArtifact README.md
+
 build: off
 
 test_script:
