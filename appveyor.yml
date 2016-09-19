@@ -2,6 +2,7 @@ version: 1.0.{build}
 
 install:
 - appveyor PushArtifact README.md
+- ps: Push-AppveyorArtifact C:\go16\CONTRIBUTORS
 
 build: off
 
