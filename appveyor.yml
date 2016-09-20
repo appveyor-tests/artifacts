@@ -1,5 +1,8 @@
 version: 1.0.{build}
 
+init:
+- appveyor version
+
 install:
 #- dir c:\go16\doc
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.html
