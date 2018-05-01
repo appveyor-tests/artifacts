@@ -4,10 +4,10 @@ init:
 - appveyor version
 - ps: $ErrorActionPreference = "Stop"
 
-install:
-- ps: Start-FileDownload http://nsis.sourceforge.net/mediawiki/images/d/d7/NSIS_Simple_Firewall_Plugin_1.20.zip -FileName SimpleFC.zip
-- ps: Start-FileDownload http://nsis.sourceforge.net/mediawiki/images/c/c9/Inetc.zip -FileName Inetc.zip
-- appveyor DownloadFile http://nsis.sourceforge.net/mediawiki/images/2/28/Nsisos.zip -FileName Nsisos.zip
+#install:
+#- ps: Start-FileDownload http://nsis.sourceforge.net/mediawiki/images/d/d7/NSIS_Simple_Firewall_Plugin_1.20.zip -FileName SimpleFC.zip
+#- ps: Start-FileDownload http://nsis.sourceforge.net/mediawiki/images/c/c9/Inetc.zip -FileName Inetc.zip
+#- appveyor DownloadFile http://nsis.sourceforge.net/mediawiki/images/2/28/Nsisos.zip -FileName Nsisos.zip
 
 #- dir c:\go16\doc
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
