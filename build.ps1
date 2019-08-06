@@ -40,7 +40,7 @@ Push-AppveyorArtifact C:\go16\LICENSE -Verbosity Quiet
 
 
 #test_script:
-echo Zipping for upload through 'artifacts' section
+echo "Zipping for upload through 'artifacts' section"
 7z a go17.zip c:\go17
 copy go17.zip go17-1.zip
 appveyor PushArtifact go17-1.zip -Type Auto -Verbosity Minimal
@@ -51,7 +51,7 @@ appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.
 cmd /c mklink go17-1-link.zip go17-1.zip
 Push-AppveyorArtifact go17-1-link.zip
 cmd /c mklink go17-2-link.zip go17-1.zip
-move C:\go16 %appveyor_build_folder%\go16
+move C:\go16 $env:appveyor_build_folder\go16
 appveyor PushArtifact README.md -FileName README-2.md -Verbosity Normal
 
 #artifacts:
