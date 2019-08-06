@@ -1,4 +1,4 @@
-appveyor version
+echo appveyor version
 $ErrorActionPreference = "Stop"
 (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/my-ip.aspx')
 
@@ -8,6 +8,7 @@ $ErrorActionPreference = "Stop"
 #- appveyor DownloadFile http://nsis.sourceforge.net/mediawiki/images/2/28/Nsisos.zip -FileName Nsisos.zip
 
 #- dir c:\go16\doc
+echo Pushing artifacts
 Push-AppveyorArtifact C:\go16\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
 Push-AppveyorArtifact C:\go16\doc\go1.1.html
 Push-AppveyorArtifact C:\go16\doc\go1.2.html
@@ -42,11 +43,11 @@ echo Zipping for upload through 'artifacts' section
 copy go17.zip go17-1.zip
 appveyor PushArtifact go17-1.zip -Type Auto -Verbosity Minimal
 copy go17.zip go17-2.zip
-ps: Push-AppveyorArtifact go17-1.zip
-ps: Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
+Push-AppveyorArtifact go17-1.zip
+Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
 appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.gz -Timeout 1000
 mklink go17-1-link.zip go17-1.zip
-ps: Push-AppveyorArtifact go17-1-link.zip
+Push-AppveyorArtifact go17-1-link.zip
 mklink go17-2-link.zip go17-1.zip
 move C:\go16 %appveyor_build_folder%\go16
 appveyor PushArtifact README.md -FileName README-2.md -Verbosity Normal
