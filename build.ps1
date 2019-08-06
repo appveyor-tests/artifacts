@@ -1,4 +1,5 @@
 echo "appveyor version"
+appveyor version
 $ErrorActionPreference = "Stop"
 echo (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/my-ip.aspx')
 
