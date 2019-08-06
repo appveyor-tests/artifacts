@@ -1,6 +1,6 @@
 echo "appveyor version"
 $ErrorActionPreference = "Stop"
-(New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/my-ip.aspx')
+echo (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/my-ip.aspx')
 
 #install:
 #- ps: Start-FileDownload http://nsis.sourceforge.net/mediawiki/images/d/d7/NSIS_Simple_Firewall_Plugin_1.20.zip -FileName SimpleFC.zip
