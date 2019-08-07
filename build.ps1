@@ -1,6 +1,7 @@
-echo "appveyor version"
+echo "Appveyor version"
 appveyor version
 $ErrorActionPreference = "Stop"
+echo "Check IP"
 echo (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/my-ip.aspx')
 
 #install:
