@@ -62,4 +62,4 @@ appveyor PushArtifact README.md -FileName README-2.md -Verbosity Normal
 #- path: go16
 
 #on_failure:
-Get-EventLog AppVeyor -newest 10 | Format-List
+#Get-EventLog AppVeyor -newest 10 | Format-List
