@@ -42,9 +42,9 @@ build: off
 
 test_script:
 - echo Zipping for upload through 'artifacts' section
-- 7z a -mx1 msys64.zip c:\msys64
-- dir
-- ps: Push-AppveyorArtifact msys64.zip
+#- 7z a -mx1 msys64.zip c:\msys64
+#- dir
+#- ps: Push-AppveyorArtifact msys64.zip
 - 7z a go17.zip c:\go17
 - copy go17.zip go17-1.zip
 - appveyor PushArtifact go17-1.zip -Type Auto -Verbosity Minimal
