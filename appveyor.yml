@@ -13,7 +13,6 @@ install:
 #- dir c:\go16\doc
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.1.html
-- ps: throw "AAA"
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.2.html
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.3.html
 - ps: Push-AppveyorArtifact C:\go16\doc\go1.4.html
