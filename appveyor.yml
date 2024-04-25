@@ -63,5 +63,17 @@ artifacts:
 - path: go17-2-link.zip
 - path: go16
 
+deploy:
+  release: test-artifacts-v$(APPVEYOR_BUILD_VERSION)
+  description: 'AppVeyor release description'
+  provider: GitHub
+  auth_token:
+    secure: m8HXQA98cyNS/kWw8RCXXR3JXashqzB9vx1fINKBNrRrMxWCp4II96XL8CbsJnTN7OPFhc8zuQQztLUu8HeEoZUnVu/xQhENnILtNVazesE/sErzhf+hHyVI2MQdx2KP
+  artifact: /.*\.zip/
+  draft: false
+  prerelease: false
+  on:
+    APPVEYOR_REPO_TAG: true
+
 on_failure:
 - ps: Get-EventLog AppVeyor -newest 10 | Format-List
