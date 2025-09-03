@@ -11,13 +11,13 @@ install:
 #- appveyor DownloadFile http://nsis.sourceforge.net/mediawiki/images/2/28/Nsisos.zip -FileName Nsisos.zip
 
 #- dir c:\go16\doc
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.1.html
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.2.html
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.3.html
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.4.html
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.5.html
-- ps: Push-AppveyorArtifact C:\go16\doc\go1.6.html
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.1.html
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.2.html
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.3.html
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.4.html
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.5.html
+- ps: Push-AppveyorArtifact C:\go121\doc\go1.6.html
 
 # download bunch of files in a row using PS
 #- ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
@@ -45,23 +45,23 @@ test_script:
 #- 7z a -mx1 msys64.zip c:\msys64
 #- dir
 #- ps: Push-AppveyorArtifact msys64.zip
-- 7z a go17.zip c:\go17
-- copy go17.zip go17-1.zip
-- appveyor PushArtifact go17-1.zip -Type Auto -Verbosity Minimal
-- copy go17.zip go17-2.zip
-- ps: Push-AppveyorArtifact go17-1.zip
+- 7z a go122.zip c:\go122
+- copy go122.zip go122-1.zip
+- appveyor PushArtifact go122-1.zip -Type Auto -Verbosity Minimal
+- copy go122.zip go122-2.zip
+- ps: Push-AppveyorArtifact go122-1.zip
 - ps: Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
 - appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.gz -Timeout 1000
-- mklink go17-1-link.zip go17-1.zip
-- ps: Push-AppveyorArtifact go17-1-link.zip
-- mklink go17-2-link.zip go17-1.zip
-- move C:\go16 %appveyor_build_folder%\go16
+- mklink go122-1-link.zip go122-1.zip
+- ps: Push-AppveyorArtifact go122-1-link.zip
+- mklink go122-2-link.zip go122-1.zip
+- move C:\go121 %appveyor_build_folder%\go121
 - appveyor PushArtifact README.md -FileName README-2.md -Verbosity Normal
 
 artifacts:
-- path: go17.zip
-- path: go17-2-link.zip
-- path: go16
+- path: go122.zip
+- path: go122-2-link.zip
+- path: go121
 
 deploy:
   release: test-artifacts-v$(APPVEYOR_BUILD_VERSION)
