@@ -11,13 +11,13 @@ install:
 #- appveyor DownloadFile http://nsis.sourceforge.net/mediawiki/images/2/28/Nsisos.zip -FileName Nsisos.zip
 
 #- dir c:\go16\doc
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.1.html
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.2.html
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.3.html
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.4.html
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.5.html
-- ps: Push-AppveyorArtifact C:\go121\doc\go1.6.html
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.html -FileName 'go - file - with spaces, v. 1.html'
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.1.html
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.2.html
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.3.html
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.4.html
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.5.html
+- ps: Push-AppveyorArtifact C:\go114\doc\go1.6.html
 
 # download bunch of files in a row using PS
 #- ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
@@ -34,9 +34,9 @@ install:
 #- appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B6v_qtb9hkicQ2hHa2dRbF83cE0" -FileName zlib.7z
 
 - appveyor PushArtifact README.md -Verbosity Quiet
-- ps: Push-AppveyorArtifact C:\go16\CONTRIBUTORS -Verbosity Normal
-- ps: Push-AppveyorArtifact C:\go16\AUTHORS -Verbosity Minimal
-- ps: Push-AppveyorArtifact C:\go16\LICENSE -Verbosity Quiet
+- ps: Push-AppveyorArtifact C:\go114\CONTRIBUTORS -Verbosity Normal
+- ps: Push-AppveyorArtifact C:\go114\AUTHORS -Verbosity Minimal
+- ps: Push-AppveyorArtifact C:\go114\LICENSE -Verbosity Quiet
 
 build: off
 
@@ -52,16 +52,16 @@ test_script:
 - ps: Push-AppveyorArtifact go122-1.zip
 - ps: Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
 - appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.gz -Timeout 1000
-- mklink go122-1-link.zip go122-1.zip
-- ps: Push-AppveyorArtifact go122-1-link.zip
-- mklink go122-2-link.zip go122-1.zip
-- move C:\go121 %appveyor_build_folder%\go121
+- mklink go115-1-link.zip go115-1.zip
+- ps: Push-AppveyorArtifact go115-1-link.zip
+- mklink go115-2-link.zip go115-1.zip
+- move C:\go114 %appveyor_build_folder%\go114
 - appveyor PushArtifact README.md -FileName README-2.md -Verbosity Normal
 
 artifacts:
-- path: go122.zip
-- path: go122-2-link.zip
-- path: go121
+- path: go115.zip
+- path: go115-2-link.zip
+- path: go115
 
 deploy:
   release: test-artifacts-v$(APPVEYOR_BUILD_VERSION)
