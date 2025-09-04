@@ -45,11 +45,11 @@ test_script:
 #- 7z a -mx1 msys64.zip c:\msys64
 #- dir
 #- ps: Push-AppveyorArtifact msys64.zip
-- 7z a go122.zip c:\go122
-- copy go122.zip go122-1.zip
-- appveyor PushArtifact go122-1.zip -Type Auto -Verbosity Minimal
-- copy go122.zip go122-2.zip
-- ps: Push-AppveyorArtifact go122-1.zip
+- 7z a go115.zip c:\go115
+- copy go115.zip go115-1.zip
+- appveyor PushArtifact go115-1.zip -Type Auto -Verbosity Minimal
+- copy go115.zip go115-2.zip
+- ps: Push-AppveyorArtifact go115-1.zip
 - ps: Start-FileDownload https://nodejs.org/dist/v6.5.0/node-v6.5.0-darwin-x64.tar.gz -FileName "$env:appveyor_build_folder\node-v6.5.0.zip" -Timeout 1000
 - appveyor DownloadFile https://nodejs.org/dist/v6.6.0/node-v6.6.0-darwin-x64.tar.gz -Timeout 1000
 - mklink go115-1-link.zip go115-1.zip
