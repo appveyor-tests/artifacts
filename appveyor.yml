@@ -54,7 +54,7 @@ test_script:
 - mklink go124-1-link.zip go124-1.zip
 - ps: Push-AppveyorArtifact go124-1-link.zip
 - mklink go124-2-link.zip go124-1.zip
-- move C:\go120 %appveyor_build_folder%\go120
+- move C:\go123 %appveyor_build_folder%\go123
 - appveyor PushArtifact README.md -FileName README-2.md -Verbosity Normal
 
 artifacts:
