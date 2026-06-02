@@ -33,9 +33,9 @@ install:
 #- appveyor DownloadFile "https://drive.google.com/uc?export=download&id=0B6v_qtb9hkicQ2hHa2dRbF83cE0" -FileName zlib.7z
 
 - appveyor PushArtifact README.md -Verbosity Quiet
-- ps: Push-AppveyorArtifact C:\go123\LICENSE -Verbosity Normal
-- ps: Push-AppveyorArtifact C:\go123\PATENTS -Verbosity Minimal
-- ps: Push-AppveyorArtifact C:\go123\VERSION -Verbosity Quiet
+- ps: Push-AppveyorArtifact C:\go126\LICENSE -Verbosity Normal
+- ps: Push-AppveyorArtifact C:\go126\PATENTS -Verbosity Minimal
+- ps: Push-AppveyorArtifact C:\go126\VERSION -Verbosity Quiet
 
 build: off
 
